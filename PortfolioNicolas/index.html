@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Nicolas Chiosso</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="#informacion">información</a>
+            <a href="#trabajos">trabajos</a>
+            <a href="#contacto">contacto</a>
+        </nav>
+    </header>
+
+    <section id="informacion" class="seccion-info">
+        <div class="avatar-container">
+            <img src="Gemini_Generated_Image_6np6eg6np6eg6np6.png" alt="Nicolas Chiosso Avatar" class="avatar">
+        </div>
+        <div class="texto-info">
+            <h1>Photoshop & Premiere Pro</h1>
+            <p>Dominio de Adobe Photoshop para la creación de miniaturas de alto impacto y máximo <strong>CTR</strong>, diseñadas para capturar la atención en YouTube.</p>
+            <p>Uso avanzado de Adobe Premiere Pro para que tus videos destaquen en redes sociales, potenciando tu marca y multiplicando tu audiencia.</p>
+        </div>
+    </section>
+
+    <section id="trabajos" class="seccion-trabajos">
+        <h2>Ultimas Miniaturas</h2>
+        <div class="grid-miniaturas">
+            <img src="t25.jpg" alt="Miniatura 1">
+            <img src="JUAN3.jpg" alt="Miniatura 2">
+            <img src="axel1.jpg" alt="Miniatura 3">
+            <img src="g1.jpg" alt="Miniatura 4">
+            <img src="t22.jpg" alt="Miniatura 5">
+            <img src="m1.jpg" alt="Miniatura 6">
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <div class="footer-contenido">
+            <div class="footer-izq">
+                <h2>Nicolás Chiosso</h2>
+            </div>
+            <div class="footer-der">
+                <p>Consultar modos de trabajo y presupuestos<br>por mensaje privado.</p>
+                <div class="redes-iconos">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-creditos">
+            <p>Desarrollado por <a href="#" class=" https://kairosdesarrolloweb.com.ar/ ">Kairos Desarrollo Web</a></p>
+        </div>
+    </footer>
+<div id="modal" class="modal">
+        <span class="cerrar-modal">&times;</span>
+        <img class="modal-contenido" id="img-modal">
+    </div>
+
+    <script>
+        const modal = document.getElementById("modal");
+        const imgModal = document.getElementById("img-modal");
+        const cerrar = document.querySelector(".cerrar-modal");
+        const miniaturas = document.querySelectorAll(".grid-miniaturas img");
+
+        // Al hacer clic en una miniatura, abrimos el modal
+        miniaturas.forEach(img => {
+            img.addEventListener("click", function() {
+                modal.style.display = "flex";
+                imgModal.src = this.src;
+            });
+        });
+
+        // Al hacer clic en la "X", cerramos el modal
+        cerrar.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+
+        // Si hacemos clic afuera de la imagen, también se cierra
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+
+        // === ANIMACIÓN DE DESLIZAMIENTO SUAVE (SMOOTH SCROLL) ===
+        document.querySelectorAll('nav a').forEach(enlace => {
+            enlace.addEventListener('click', function(e) {
+                e.preventDefault(); // Apaga la teletransportación por defecto
+                
+                // Busca a qué sección queremos ir (ej: 'trabajos')
+                const destinoId = this.getAttribute('href').substring(1);
+                const seccionDestino = document.getElementById(destinoId);
+                
+                if(seccionDestino) {
+                    // Calcula la distancia y le resta 90px para que el menú fijo no tape el título
+                    const posicion = seccionDestino.offsetTop - 90;
+                    
+                    // Hace el deslizamiento suave
+                    window.scrollTo({
+                        top: posicion,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+</body>
+</html>

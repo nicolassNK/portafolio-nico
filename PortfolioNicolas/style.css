@@ -1,0 +1,261 @@
+/* Reseteo básico y variables */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    /* CAMBIÁ ESTA LÍNEA: background: linear-gradient(to bottom, #111111, #0a0a0a); */
+    
+    /* POR ESTA NUEVA LÍNEA: */
+    background: radial-gradient(circle at 50% 30%, #2a2a2a, #000000);
+    
+    color: #ffffff;
+}
+html {
+    scroll-behavior: smooth; 
+    scroll-padding-top: 90px;
+}
+
+/* === NAVEGACIÓN === */
+header {
+    position: sticky;
+    top: 0;
+    background-color: rgba(17, 17, 17, 0.95);
+    border-bottom: 1px solid #333;
+    z-index: 100;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px 0;
+    max-width: 1400px; /* Más ancho */
+    margin: 0 auto;
+}
+
+nav a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 300;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #00a8ff;
+}
+
+/* === SECCIÓN INFORMACIÓN === */
+.seccion-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px; 
+    min-height: auto; 
+    max-width: 1400px; 
+    margin: 0 auto;
+    /* Reducimos el padding de abajo (el tercer valor) a 0 o 10px */
+    padding: 80px 5% 10px 5%; 
+}
+
+.avatar {
+    width: 380px; /* Foto más grande */
+    height: 380px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+}
+
+.texto-info {
+    max-width: 800px; /* Texto ocupa más espacio */
+}
+
+.texto-info h1 {
+    font-size: 3.5rem; /* Título con más impacto */
+    margin-bottom: 25px;
+    font-weight: 600;
+    letter-spacing: -1px;
+}
+
+.texto-info p {
+    font-size: 1.15rem; /* Antes estaba en 1rem o 1.2rem, 1.15 es el punto justo */
+    line-height: 1.6;
+    color: #cccccc;
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+
+/* === SECCIÓN TRABAJOS === */
+.seccion-trabajos {
+    /* Reducimos el padding de arriba (el primer valor) a 10px o 20px */
+    padding: 20px 5% 100px 5%; 
+    text-align: center;
+    max-width: 1600px; 
+    margin: 0 auto;
+}
+
+.seccion-trabajos h2 {
+    font-size: 2.8rem; /* Título más grande */
+    margin-bottom: 60px;
+    font-weight: 400;
+}
+
+.grid-miniaturas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px; /* Más respiro entre las miniaturas */
+}
+
+.grid-miniaturas img {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.grid-miniaturas img:hover {
+    transform: scale(1.03);
+}
+
+/* === SECCIÓN CONTACTO (FOOTER REDISEÑADO) === */
+#contacto {
+    background-color: #000000; /* Fondo negro puro para dar cierre */
+    padding: 80px 10% 30px 10%;
+    border-top: 1px solid #1a1a1a;
+}
+
+.footer-contenido {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Alineación perfecta al centro vertical */
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #1f1f1f; /* Línea elegante que separa los créditos */
+}
+
+.footer-izq h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.footer-der {
+    text-align: right;
+}
+
+.footer-der p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    color: #bbbbbb;
+}
+
+.redes-iconos a {
+    color: #ffffff;
+    font-size: 2.2rem;
+    margin-left: 25px;
+    text-decoration: none;
+    transition: color 0.3s, transform 0.3s;
+    display: inline-block;
+}
+
+.redes-iconos a:hover {
+    color: #00a8ff;
+    transform: translateY(-5px); /* Efecto hover dinámico */
+}
+
+.footer-creditos {
+    text-align: center; /* Firma centrada abajo de todo */
+    margin-top: 20px;
+}
+
+.footer-creditos p {
+    font-size: 1rem;
+    color: #555555;
+}
+
+.link-kairos {
+    color: #00a8ff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.link-kairos:hover {
+    text-decoration: underline;
+}
+
+/* === RESPONSIVE BÁSICO (Para celulares) === */
+@media (max-width: 768px) {
+    .seccion-info {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 80px;
+    }
+    .texto-info h1 { white-space: normal; font-size: 2.5rem; }
+    .grid-miniaturas {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-contenido {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 40px;
+    }
+    
+    .footer-der {
+        text-align: center;
+    }
+
+    .redes-iconos a {
+        margin: 0 15px;
+    }
+}
+
+/* === EFECTO POP-UP (LIGHTBOX) === */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro transparente */
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-contenido {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.8);
+    animation: zoom 0.3s ease; /* Animación para que aparezca suave */
+}
+
+@keyframes zoom {
+    from {transform: scale(0.8); opacity: 0;} 
+    to {transform: scale(1); opacity: 1;}
+}
+
+.cerrar-modal {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.cerrar-modal:hover {
+    color: #00a8ff; /* También se pone celeste al pasar el mouse */
+}

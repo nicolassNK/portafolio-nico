@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "../../PAGINAS"
+		},
+		{
+			"path": "../../kairosht"
+		},
+		{
+			"path": "../../ALGORITMO"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "kairosht"
+	}
+}
