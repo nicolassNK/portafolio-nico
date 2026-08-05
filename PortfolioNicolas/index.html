@@ -35,17 +35,20 @@
         <h2>Ultimas Miniaturas</h2>
         <div class="grid-miniaturas">
             <img src="fotos/t25.webp" alt="Miniatura 1">
-            <img src="fotos/NAHUE1.webp" alt="Miniatura 2">
-            <img src="fotos/JUAN7.webp" alt="Miniatura 3">
+            <img src="fotos/DSC00090.JPG.webp" alt="Miniatura 2">
+            <img src="fotos/matitino.webp" alt="Miniatura 3">
             <img src="fotos/NAHUE2.webp" alt="Miniatura 4">
             <img src="fotos/t22.webp" alt="Miniatura 5">
             <img src="fotos/m1.webp" alt="Miniatura 6">
-            <img src="fotos/t23.webp" alt="Miniatura 7">
-            <img src="fotos/b.webp" alt="Miniatura 8">
+            <img src="fotos/3m8.webp" alt="Miniatura 7">
+            <img src="fotos/g11.webp" alt="Miniatura 8">
             <img src="fotos/axel3.webp" alt="Miniatura 9">
-            <img src="fotos/t212.webp" alt="Miniatura 10">
-            <img src="fotos/JUAN3.webp" alt="Miniatura 11">
-            <img src="fotos/NAHUE6.webp" alt="Miniatura 12">
+            <img src="fotos/J13.webp" alt="Miniatura 10">
+            <img src="fotos/b.webp" alt="Miniatura 11">
+            <img src="fotos/NAHUE15.webp" alt="Miniatura 12">
+            <img src="fotos/IGANACIO-SORIA.webp" alt="Miniatura 13">
+            <img src="fotos/n1.webp" alt="Miniatura 14">
+            <img src="fotos/g8.webp" alt="Miniatura 15">
         </div>
     </section>
 
@@ -81,7 +84,7 @@
         const cerrar = document.querySelector(".cerrar-modal");
         const miniaturas = document.querySelectorAll(".grid-miniaturas img");
 
-        // Al hacer clic en una miniatura, abrimos el modal
+       
         miniaturas.forEach(img => {
             img.addEventListener("click", function() {
                 modal.style.display = "flex";
@@ -89,29 +92,26 @@
             });
         });
 
-        // Al hacer clic en la "X", cerramos el modal
+       
         cerrar.addEventListener("click", () => {
             modal.style.display = "none";
         });
 
-        // Si hacemos clic afuera de la imagen, también se cierra
+        
         modal.addEventListener("click", (e) => {
             if (e.target === modal) {
                 modal.style.display = "none";
             }
         });
 
-        // === ANIMACIÓN DE DESLIZAMIENTO SUAVE (SMOOTH SCROLL) ===
         document.querySelectorAll('nav a').forEach(enlace => {
             enlace.addEventListener('click', function(e) {
                 e.preventDefault(); // Apaga la teletransportación por defecto
                 
-                // Busca a qué sección queremos ir (ej: 'trabajos')
                 const destinoId = this.getAttribute('href').substring(1);
                 const seccionDestino = document.getElementById(destinoId);
                 
                 if(seccionDestino) {
-                    // Calcula la distancia y le resta 90px para que el menú fijo no tape el título
                     const posicion = seccionDestino.offsetTop - 90;
                     
                     // Hace el deslizamiento suave
